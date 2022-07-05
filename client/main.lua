@@ -58,7 +58,7 @@ RegisterNUICallback('close', function()
     SetNuiFocus(false, false)
 end)
 
-RegisterNUICallback('rentVeh', function(data, cb)
+RegisterNUICallback('rentVeh', function(data)
     local veh = data.vehModel
     ESX.TriggerServerCallback('zLocation:canRentVehicle', function(success)
         if success then
@@ -69,20 +69,16 @@ RegisterNUICallback('rentVeh', function(data, cb)
                         SetVehicleHasBeenOwnedByPlayer(vehicle, true)
                         TriggerServerEvent("zLocation:rentVehicle", veh)
                     end, true)
-                    cb(true)
                     break
                 end
                 if i == #shopIsIn.spawnLocation then 
                     ESX.ShowNotification("Pas d'emplacement") 
-                    cb(false)
                 end
             end
             SendNUIMessage({
                 type = 'close'
             })  
             SetNuiFocus(false, false)
-        else
-            cb(false)
         end
     end, veh)
 end)
