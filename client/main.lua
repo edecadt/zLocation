@@ -3,15 +3,15 @@ local shopIsIn = {}
 Citizen.CreateThread(function()
     for _,v in pairs(Config.Location) do
         local blip = AddBlipForCoord(v.npcLocation.xyz)
-		SetBlipSprite(blip, 171)
-		SetBlipScale(blip, 0.9)
-		SetBlipDisplay(blip, 4)
-		SetBlipColour(blip, 46)
-		SetBlipAsShortRange(blip, true)
+	SetBlipSprite(blip, 171)
+	SetBlipScale(blip, 0.9)
+	SetBlipDisplay(blip, 4)
+	SetBlipColour(blip, 46)
+	SetBlipAsShortRange(blip, true)
 
-		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString("Location")
-		EndTextCommandSetBlipName(blip)
+	BeginTextCommandSetBlipName("STRING")
+	AddTextComponentString("Location")
+	EndTextCommandSetBlipName(blip)
     end
 end)
 
